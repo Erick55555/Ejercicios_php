@@ -25,5 +25,4 @@
     $bas1 = new base($num1);
     echo $bas1->construir()
        
-
 ?>
