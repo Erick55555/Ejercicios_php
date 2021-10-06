@@ -1,3 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej_1</title>
+</head>
+<body>
+    <form method="get">
+    <label>Numero de piso:</label>
+    <input type="text" name="piso"><br><br>
+    <label>Numero de puerta:</label>
+    <input type="text" name="puerta"><br><br>
+    <input type="submit" value="Enviar"><br><br>
+    </form>
+</body>
+</html>
+
+
 <?php 
     class Pisos {
         private $Num_piso;
@@ -15,11 +35,13 @@
         }
     }
 
-    $Num_piso=rand(1,100);
-    $Num_puertas=rand(1,100);
+    if(isset($_GET["piso"]) && isset($_GET["puerta"])){
+        $Num_piso= $_GET["piso"];
+        $Num_puertas= $_GET["puerta"];
+    }
+    
 
-
-    $pis1 = new Pisos(2,30);
+    $pis1 = new Pisos($Num_piso,$Num_puertas);
     echo "<br>Este es el numero de viviendas: ".$pis1->obtenerviviendas();
 
 
